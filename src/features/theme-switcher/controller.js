@@ -7,7 +7,7 @@ function nextThemeSwitcher({ themeList, currentTheme }) {
   return themeList[(themeList.indexOf(currentTheme) + 1) % themeList.length];
 }
 
-export function initThemeSwitcher({ root }) {
+export function initTheme({ root }) {
   const { activeTheme } = loadThemeState();
   root.dataset.theme = activeTheme;
 
@@ -17,7 +17,7 @@ export function initThemeSwitcher({ root }) {
       themeList: THEMES,
       currentTheme: activeTheme,
     });
-
+    events.emit('theme:changed', next);
     root.dataset.theme = next;
     updateThemeState({ activeTheme: next });
   });

@@ -29,4 +29,10 @@
       color: $fg-hover;
     }
   }
+
+  @include active {
+    transform: scale(0.97);
+    background-color: var($bg-hover);
+    color: var($fg-hover);
+  }
 }

@@ -1,6 +1,6 @@
 export const events = {
-  emit(event, data) {
-    document.dispatchEvent(new CustomEvent(event, { detail: data }));
+  emit(event, detail) {
+    document.dispatchEvent(new CustomEvent(event, { detail }));
   },
 
   on(event, cb) {

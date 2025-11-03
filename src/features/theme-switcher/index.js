@@ -1,36 +1,23 @@
 import { createElement } from '@/shared/dom/create-element';
+import { events } from '@/shared/event/event-broker';
 
-let isActive = false;
+import { loadThemeState } from './state';
 
-export function ThemeButton({ emit }) {
-  const mouseDownHandler = () => {
-    console.log('Mouse down');
-    isActive = true;
-    emit('theme:next');
-  };
-  const mouseUpHandler = () => {
-    isActive = false;
-    console.log('Mouse up');
-  };
-  const mouseLeaveHandler = () => {
-    console.log('Mouse leave');
-  };
-  const mouseOverHandler = () => {
-    if (isActive) emit('theme:next');
-    console.log('Mouse over');
-  };
+export function ThemeButton() {
+  let { activeTheme } = loadThemeState();
 
-  console.log('isActive: ', isActive);
-  return createElement(
+  events.on('theme:changed', ({ detail }) => {
+    el.textContent = `${detail}`;
+  });
+
+  const el = createElement(
     'button',
     {
       className: 'btn',
-      onMouseDown: mouseDownHandler,
-      onMouseUp: mouseUpHandler,
-      onMouseLeave: mouseLeaveHandler,
-      onMouseOver: mouseOverHandler,
+      onClick: () => events.emit('theme:next'),
     },
-
-    'Next Theme1'
+    `${activeTheme}`
   );
+
+  return el;
 }
