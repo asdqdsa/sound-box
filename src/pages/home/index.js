@@ -1,13 +1,13 @@
 import '@/shared/dom/keyboard';
 
-import { XylophoneKey } from '@/features/Xylopad';
-import { XYLOPHONE_KEYS } from '@/features/Xylopad/constants';
+import { XylophoneKey } from '@/features/xylopad';
+import { XYLOPHONE_KEYS } from '@/features/xylopad/constants';
 import { ThemeButton } from '@/features/theme-switcher';
 import { initTheme as initThemeStore } from '@/features/theme-switcher/controller';
 import { createElement } from '@/shared/dom/create-element';
 import { mount, render } from '@/shared/dom/render';
 import { events } from '@/shared/event/event-broker';
-import { initXylophone as initXylophoneStore } from '@/features/Xylopad/controller';
+import { initXylophone as initXylophoneStore } from '@/features/xylopad/controller';
 
 export function App() {
   return createElement('div', {
