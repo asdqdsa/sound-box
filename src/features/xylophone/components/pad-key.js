@@ -3,7 +3,7 @@ import { events } from '@/shared/event/event-broker';
 
 let isActive = false;
 
-export function XylophoneKey({ emit, note, key }) {
+export function XylophoneKey({ emit, on, note, key, idx }) {
   const play = () => {
     // const audio = new Audio(`sounds/${note}.mp3`);
     // audio.play();
@@ -31,7 +31,7 @@ export function XylophoneKey({ emit, note, key }) {
     el.classList.remove('active');
   };
 
-  events.on('key:down', ({ detail }) => {
+  on('key:down', ({ detail }) => {
     if (detail.toLowerCase() === key.toLowerCase()) {
       play();
       el.classList.add('active');
@@ -51,6 +51,7 @@ export function XylophoneKey({ emit, note, key }) {
     'button',
     {
       className: 'btn',
+      id: idx,
       onMouseDown: mouseDownHandler,
       onMouseUp: mouseUpHandler,
       onMouseOver: mouseOverHandler,

@@ -21,7 +21,9 @@
   min-inline-size: rx(200);
   padding-inline: rx(10);
   text-align: center;
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease;
 
   @include hover {
     &:hover {

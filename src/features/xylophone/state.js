@@ -3,10 +3,11 @@
  * @property {string} activeKey
  * @property {boolean} [isFirstLoad]
  */
+import { SEQUENCE } from './constants';
 import { getXylophoneState, setXylophoneState } from './storage';
 
 function initXylophoneState() {
-  /** @type {XylophoneState} Theme State */
+  /** @type {XylophoneState} Xylophone State */
   const initialState = {
     activeKey: 'null',
     isFirstLoad: true,
@@ -28,3 +29,10 @@ export function updateXylophoneState({ activeKey }) {
   setXylophoneState(fresh);
   return fresh;
 }
+
+const recordState = {
+  sequence: SEQUENCE,
+  index: 0,
+};
+
+export const getRecordState = () => recordState;

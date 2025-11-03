@@ -1,9 +1,8 @@
 import { createElement } from '@/shared/dom/create-element';
-import { events } from '@/shared/event/event-broker';
 
 import { loadThemeState } from './state';
 
-export function ThemeButton() {
+export function ThemeButton({ events }) {
   let { activeTheme } = loadThemeState();
 
   events.on('theme:changed', ({ detail }) => {
