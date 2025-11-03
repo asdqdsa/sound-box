@@ -3,7 +3,6 @@ import { createElement } from '@/shared/dom/create-element';
 import { getRecordState } from '../state';
 
 export const Display = ({ events }) => {
-  console.log(events);
   const record = getRecordState().sequence;
   const el = createElement(
     'input',
@@ -15,5 +14,6 @@ export const Display = ({ events }) => {
     ``
   );
 
+  console.log(events);
   return el;
 };

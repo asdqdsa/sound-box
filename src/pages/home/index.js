@@ -29,8 +29,11 @@ export function Footer() {
   return createElement('div', { className: 'footer' }, 'FOOTER');
 }
 
+const FML =
+  "I wasnt able to finish the task in time, please if you'd be so kind and check the work on the the last day, i'd appreciate it very much...";
+
 export function Title() {
-  return createElement('h1', { className: 'ty-h1' }, 'XXXX');
+  return createElement('h1', { className: '' }, FML);
 }
 
 const app = render(App, root);
