@@ -1,4 +1,4 @@
-import '@/shared/dom/keyboard';
+import '@/shared/dom/keyboard-events';
 
 import { ThemeButton } from '@/features/theme-switcher';
 import { initTheme as initThemeStore } from '@/features/theme-switcher/controller';
@@ -34,6 +34,7 @@ const FML =
 
 export function Title() {
   return createElement('h1', { className: '' }, FML);
+  // return createElement('h1', { className: '' }, 'Title');
 }
 
 const app = render(App, root);

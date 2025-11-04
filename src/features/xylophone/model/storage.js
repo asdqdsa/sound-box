@@ -1,6 +1,6 @@
 import { loadState, saveState } from '@/shared/storage';
 
-import { LOCAL_STORAGE_KEY_XYLOPHONE } from './constants';
+import { LOCAL_STORAGE_KEY_XYLOPHONE } from '../constants';
 
 /**
  * @typedef {Object} XylophoneState

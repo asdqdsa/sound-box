@@ -3,7 +3,7 @@
  * @property {string} activeKey
  * @property {boolean} [isFirstLoad]
  */
-import { SEQUENCE } from './constants';
+import { SEQUENCE } from '../constants';
 import { getXylophoneState, setXylophoneState } from './storage';
 
 function initXylophoneState() {

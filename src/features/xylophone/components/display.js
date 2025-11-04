@@ -1,6 +1,6 @@
 import { createElement } from '@/shared/dom/create-element';
 
-import { getRecordState } from '../state';
+import { getRecordState } from '../model/state';
 
 export const Display = ({ events }) => {
   const record = getRecordState().sequence;
