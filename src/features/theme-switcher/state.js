@@ -1,6 +1,6 @@
 /**
  * @typedef {Object} ThemeState
- * @property {'default' | 'dark' | 'light' | 'gold' | null} activeTheme
+ * @property {'darkpink' | 'default' | 'dark' | 'light' | 'gold' | null} activeTheme
  * @property {boolean} [isFirstLoad]
  */
 
@@ -9,7 +9,7 @@ import { getThemeState, setThemeState } from './storage';
 function initThemeState() {
   /** @type {ThemeState} Theme State */
   const initialState = {
-    activeTheme: 'default',
+    activeTheme: 'darkpink',
     isFirstLoad: true,
   };
 
