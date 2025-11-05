@@ -1,4 +1,5 @@
 import { createElement } from '@/shared/dom/create-element';
+import { lock } from '@/shared/utils/async/lock';
 
 import { playNote } from '../audio/player';
 
@@ -12,16 +13,20 @@ export function XylophoneKey({ events, note, keyBind, idx }) {
   };
 
   const mouseDownHandler = () => {
+    if (lock.status) return;
     isActive = true;
     play();
     el.classList.add('active');
   };
+
   const mouseUpHandler = () => {
+    if (lock.status) return;
     isActive = false;
     el.classList.remove('active');
   };
+
   const mouseOverHandler = () => {
-    if (isActive) {
+    if (isActive && !lock.status) {
       play();
       el.classList.add('active');
     }
@@ -47,6 +52,7 @@ export function XylophoneKey({ events, note, keyBind, idx }) {
       el.classList.remove('active');
     }
   });
+
   const el = createElement(
     'button',
     {

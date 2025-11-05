@@ -18,8 +18,8 @@ export function PlayRecordButton({ events }) {
         await sleep(300);
         events.emit('key:up', key);
         await sleep(100);
-        events.emit('record:end');
       }
+      events.emit('record:end');
     });
   };
 
