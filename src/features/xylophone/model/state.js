@@ -1,6 +1,7 @@
 /**
  * @typedef {Object} XylophoneState
  * @property {string} activeKey
+ * @property {string} record
  * @property {boolean} [isFirstLoad]
  */
 import { SEQUENCE } from '../constants';
@@ -10,6 +11,7 @@ function initXylophoneState() {
   /** @type {XylophoneState} Xylophone State */
   const initialState = {
     activeKey: 'null',
+    record: 'null',
     isFirstLoad: true,
   };
 
@@ -23,9 +25,9 @@ export function loadXylophoneState() {
   return fresh;
 }
 
-export function updateXylophoneState({ activeKey }) {
+export function updateXylophoneState({ activeKey, record }) {
   const stale = loadXylophoneState();
-  const fresh = { ...stale, activeKey };
+  const fresh = { ...stale, activeKey, record };
   setXylophoneState(fresh);
   return fresh;
 }

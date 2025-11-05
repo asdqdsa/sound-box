@@ -1,14 +1,13 @@
 import { createElement } from '@/shared/dom/create-element';
-import { events } from '@/shared/event/event-broker';
 
 let isActive = false;
 
-export function XylophoneKey({ emit, on, note, key, idx }) {
+export function XylophoneKey({ events, note, keyBind, idx }) {
   const play = () => {
     // const audio = new Audio(`sounds/${note}.mp3`);
     // audio.play();
     console.log('Playing note:', note);
-    emit('xylophone:key', note);
+    events.emit('xylophone:key', note);
   };
 
   const mouseDownHandler = () => {
@@ -31,8 +30,8 @@ export function XylophoneKey({ emit, on, note, key, idx }) {
     el.classList.remove('active');
   };
 
-  on('key:down', ({ detail }) => {
-    if (detail.toLowerCase() === key.toLowerCase()) {
+  events.on('key:down', ({ detail }) => {
+    if (detail.toLowerCase() === keyBind.toLowerCase()) {
       play();
       el.classList.add('active');
       setTimeout(() => {
@@ -43,7 +42,7 @@ export function XylophoneKey({ emit, on, note, key, idx }) {
   });
 
   events.on('key:up', ({ detail }) => {
-    if (detail.toLowerCase() === key.toLowerCase()) {
+    if (detail.toLowerCase() === keyBind.toLowerCase()) {
       el.classList.remove('active');
     }
   });
@@ -57,7 +56,7 @@ export function XylophoneKey({ emit, on, note, key, idx }) {
       onMouseOver: mouseOverHandler,
       onMouseOut: mouseOutHandler,
     },
-    `${note} - key: ${key}`
+    `${note.toUpperCase()} :: [ ${keyBind} ]`
   );
 
   return el;

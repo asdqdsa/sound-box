@@ -7,7 +7,7 @@ import { mount, render } from '@/shared/dom/render';
 import { events } from '@/shared/event/event-broker';
 import { initXylophone as initXylophoneStore } from '@/features/xylophone/controller';
 import { Xylophone } from '@/features/xylophone';
-import { PlayRecord } from '@/features/xylophone/components/play-record';
+import { PlayRecordButton } from '@/features/xylophone/components/play-record';
 import { Display } from '@/features/xylophone/components/display';
 
 const root = document.querySelector('#root');
@@ -42,6 +42,6 @@ mount(Header, app);
 mount(Title, app);
 const xylophone = mount(Xylophone({ events }), app);
 mount(Display({ events }), xylophone);
-mount(PlayRecord({ events }), app);
+mount(PlayRecordButton({ events }), app);
 mount(Footer, app);
 mount(ThemeButton({ events }), app);

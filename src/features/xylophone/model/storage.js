@@ -5,6 +5,7 @@ import { LOCAL_STORAGE_KEY_XYLOPHONE } from '../constants';
 /**
  * @typedef {Object} XylophoneState
  * @property {string} activeKey
+ * @property {string} record
  * @property {boolean} [isFirstLoad]
  */
 
