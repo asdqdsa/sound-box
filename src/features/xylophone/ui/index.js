@@ -1,8 +1,8 @@
 import { createElement } from '@/shared/dom/create-element';
 
-import { XylophoneKey } from './components/pad-key';
-import { KEYBINDS, XYLOPHONE_KEYS } from './constants';
-import { getKeyByNote } from './components/play-record';
+import { XylophoneKey } from './pad-key';
+import { KEYBINDS, XYLOPHONE_KEYS } from '../constants';
+import { getKeyByNote } from './play-record';
 
 // export const XYLOPHONE_KEYS = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 export function Xylophone({ events }) {

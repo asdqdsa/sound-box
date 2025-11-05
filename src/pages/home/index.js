@@ -6,9 +6,9 @@ import { createElement } from '@/shared/dom/create-element';
 import { mount, render } from '@/shared/dom/render';
 import { events } from '@/shared/event/event-broker';
 import { initXylophone as initXylophoneStore } from '@/features/xylophone/controller';
-import { Xylophone } from '@/features/xylophone';
-import { PlayRecordButton } from '@/features/xylophone/components/play-record';
-import { Display } from '@/features/xylophone/components/display';
+import { Xylophone } from '@/features/xylophone/ui';
+import { PlayRecordButton } from '@/features/xylophone/ui/play-record';
+import { Display } from '@/features/xylophone/ui/display';
 
 const root = document.querySelector('#root');
 initThemeStore({ root });

@@ -2,16 +2,13 @@ import { events } from '@/shared/event/event-broker';
 
 import { loadXylophoneState, updateXylophoneState } from './model/state';
 import { MAX_RECORD_LENGTH } from './constants';
+import { preLoadAudio } from './audio/loader';
 
-export function initXylophone() {
-  // activeKey == prevKey
-
+export async function initXylophone() {
+  await preLoadAudio();
   events.on('xylophone:key', ({ detail }) => {
-    // const { activeKey, record } = loadXylophoneState();
     const state = loadXylophoneState();
-
     updateXylophoneState({ ...state, activeKey: detail });
-    console.log('activeKey', detail);
   });
 
   function updateRecord(detail) {
