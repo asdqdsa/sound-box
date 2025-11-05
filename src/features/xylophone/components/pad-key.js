@@ -4,8 +4,8 @@ let isActive = false;
 
 export function XylophoneKey({ events, note, keyBind, idx }) {
   const play = () => {
-    // const audio = new Audio(`sounds/${note}.mp3`);
-    // audio.play();
+    const audio = new Audio(`sounds/xylo/${note.toUpperCase()}.wav`);
+    audio.play();
     console.log('Playing note:', note);
     events.emit('xylophone:key', note);
   };

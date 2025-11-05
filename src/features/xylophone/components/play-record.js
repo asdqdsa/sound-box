@@ -2,16 +2,16 @@ import { createElement } from '@/shared/dom/create-element';
 import { sleep } from '@/shared/utils/async/sleep';
 import { lock } from '@/shared/utils/async/lock';
 
-import { getRecordState, loadXylophoneState } from '../model/state';
+import { loadXylophoneState } from '../model/state';
 import { KEYBINDS } from '../constants';
 
 export function PlayRecordButton({ events }) {
-  const defaultSeq = getRecordState().sequence;
-  const { record } = loadXylophoneState();
+  // const defaultSeq = getRecordState().sequence;
+  // const { record } = loadXylophoneState();
 
   const playSequens = async (record) => {
     lock.run(async () => {
-      for (const note of record || defaultSeq) {
+      for (const note of record) {
         const key = getKeyByNote(note, KEYBINDS);
         events.emit('record:start', note);
         events.emit('key:down', key);
@@ -25,7 +25,6 @@ export function PlayRecordButton({ events }) {
 
   events.on('record:confirm', () => {
     const { record } = loadXylophoneState();
-    console.log('record: ', record);
     playSequens(record);
   });
 
@@ -39,7 +38,14 @@ export function PlayRecordButton({ events }) {
 
   const el = createElement(
     'button',
-    { className: 'btn', id: 'start', onClick: () => playSequens(record) },
+    {
+      className: 'btn',
+      id: 'start',
+      onClick: () => {
+        const { record } = loadXylophoneState();
+        playSequens(record);
+      },
+    },
     `PLAY${''}`
   );
 

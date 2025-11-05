@@ -11,7 +11,7 @@ function initXylophoneState() {
   /** @type {XylophoneState} Xylophone State */
   const initialState = {
     activeKey: 'null',
-    record: 'null',
+    record: SEQUENCE.join(''),
     isFirstLoad: true,
   };
 

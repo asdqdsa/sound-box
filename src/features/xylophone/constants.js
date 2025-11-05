@@ -1,8 +1,23 @@
-export const LOCAL_STORAGE_KEY_XYLOPHONE = 'XYLOPHONE-888';
+export const LOCAL_STORAGE_KEY_XYLOPHONE = 'XYLOPHONE-999';
 
 export const XYLOPHONE_KEYS = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 
-export const SEQUENCE = ['A', 'A', 'F', 'E', 'G', 'D', 'B'];
+export const SEQUENCE = [
+  'a',
+  'c',
+  'b',
+  'd',
+  'a',
+  'c',
+  'b',
+  'd',
+  'a',
+  'c',
+  'b',
+  'd',
+  'a',
+  'c',
+];
 
 export const KEYBINDS = new Map([
   ['A', 'c'],

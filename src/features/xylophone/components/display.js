@@ -10,7 +10,11 @@ export const Display = ({ events }) => {
     className: 'input rounded',
     placeholder: record || 'Type...',
     onInput: (e) => events.emit('record:input', e.target.value),
-    onChange: (e) => events.emit('record:confirm', e.target.value),
+    onKeyDown: (e) => {
+      if (e.key === 'Enter') {
+        events.emit('record:confirm', e.target.value);
+      }
+    },
   });
 
   events.on('record:start', () => (el.disabled = true));
