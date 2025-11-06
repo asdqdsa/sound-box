@@ -22,23 +22,19 @@ export function App() {
 }
 
 export function Header() {
-  return createElement(
-    'div',
-    { className: 'header mb-20' },
-    'Virtual Music Kit'
-  );
+  return createElement('div', { className: 'header mb-10 ty-h2' }, 'Sound Box');
 }
 
 export function Footer() {
   return createElement('div', { className: 'footer' }, '2025@asdqdsa');
 }
 
-const FML =
-  "I wasnt able to finish the task in time, please if you'd be so kind and check the work on the the last day, i'd appreciate it very much...";
+// const FML =
+// "I wasnt able to finish the task in time, please if you'd be so kind and check the work on the the last day, i'd appreciate it very much...";
 
 export function Title() {
-  return createElement('h1', { className: '' }, FML);
-  // return createElement('h1', { className: '' }, '');
+  // return createElement('h1', { className: '' }, FML);
+  return createElement('h1', { className: '' }, '');
 }
 
 const app = render(App, root);

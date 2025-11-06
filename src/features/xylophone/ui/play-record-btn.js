@@ -29,10 +29,12 @@ export function PlayRecordButton({ events }) {
   });
 
   events.on('record:start', ({ detail }) => {
+    el.style.pointerEvents = 'none';
     el.textContent = `Playing: ${detail}`;
   });
 
   events.on('record:end', () => {
+    el.style.pointerEvents = '';
     el.textContent = `PLAY`;
   });
 

@@ -13,10 +13,12 @@ export const Display = ({ events }) => {
     type: 'text',
     maxLength: '14',
     onInput: (e) => {
-      const char = e.target.value.trim().toUpperCase().at(-1);
-      if (!isValidNote(char)) {
-        e.target.value = e.target.value.slice(0, -1);
-      } else {
+      // const char = e.target.value.trim().toUpperCase().at(-1);
+      const clean = e.target.value.toUpperCase().replace(/[^a-gA-G]/g, '');
+      if (clean !== e.target.value) {
+        e.target.value = clean;
+      }
+      if (clean) {
         events.emit('record:input', e.target.value);
       }
     },

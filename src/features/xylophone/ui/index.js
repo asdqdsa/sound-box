@@ -20,9 +20,13 @@ export function Xylophone({ events }) {
   ];
   const el = createElement(
     'div',
-    { className: 'flex flex-col gap-3 items-center h-full' },
+    {
+      className: 'flex flex-col gap-3 items-center h-full',
+      id: 'xylopad',
+    },
     ...keys.map((note, idx) => {
       const keyBind = getKeyByNote(note, KEYBINDS);
+
       return createElement(
         'div',
         { className: 'flex items-center gap-4 items-center' },
@@ -39,6 +43,16 @@ export function Xylophone({ events }) {
       );
     })
   );
+
+  events.on('record:start', () => {
+    el.style.pointerEvents = 'none';
+    el.classList.add('select-none');
+  });
+
+  events.on('record:end', () => {
+    el.style.pointerEvents = '';
+    el.classList.remove('select-none');
+  });
 
   return el;
 }
