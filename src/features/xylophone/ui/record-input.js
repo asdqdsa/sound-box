@@ -7,8 +7,10 @@ export const Display = ({ events }) => {
 
   const el = createElement('input', {
     id: 'display',
-    className: 'input rounded',
+    className: 'input rounded my-10 text-center',
     placeholder: record || 'Type...',
+    type: 'text',
+    maxLength: '14',
     onInput: (e) => events.emit('record:input', e.target.value),
     onKeyDown: (e) => {
       if (e.key === 'Enter') {

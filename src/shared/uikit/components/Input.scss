@@ -10,7 +10,7 @@ $input-inline-size: clamp(16rem, 7.143rem + 18.452vi, 23.75rem);
   inline-size: $input-inline-size;
   max-inline-size: rx(380);
   min-inline-size: rx(256);
-  text-align: center;
+  /* text-align: center; */
   outline: none;
   transition:
     border-color 0.3s ease,
@@ -37,4 +37,12 @@ $input-inline-size: clamp(16rem, 7.143rem + 18.452vi, 23.75rem);
   @include screen(md) {
     inline-size: 100%;
   }
+}
+
+.keybind-input-hidden {
+  display: none;
+}
+
+.keybind-input-shown {
+  display: block;
 }

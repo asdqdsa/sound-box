@@ -53,6 +53,13 @@ export function XylophoneKey({ events, note, keyBind, idx }) {
     }
   });
 
+  events.on('keybind:updated', ({ detail }) => {
+    const { keyBind: newKeyBind, note: updatedNote } = detail;
+    if (updatedNote.toLowerCase() !== note.toLowerCase()) return;
+    keyBind = newKeyBind;
+    el.textContent = `${note.toUpperCase()} :: [ ${keyBind} ]`;
+  });
+
   const el = createElement(
     'button',
     {

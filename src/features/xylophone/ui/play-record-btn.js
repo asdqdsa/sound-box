@@ -39,7 +39,7 @@ export function PlayRecordButton({ events }) {
   const el = createElement(
     'button',
     {
-      className: 'btn',
+      className: 'btn my-50',
       id: 'start',
       onClick: () => {
         const { record } = loadXylophoneState();
@@ -53,7 +53,12 @@ export function PlayRecordButton({ events }) {
 }
 
 export const getKeyByNote = (note, keyMap) => {
-  const key = keyMap.get(note.toUpperCase()).toLowerCase();
-  console.log('key: ', key);
-  return key;
+  // const key = keyMap.get(note.toUpperCase()).toLowerCase();
+  // console.log('key: ', key);
+  // return key;
+
+  const key = Array.from(keyMap.entries()).find(
+    ([, n]) => n.toLowerCase() === note.toLowerCase()
+  )?.[0];
+  return key?.toLowerCase() ?? '';
 };

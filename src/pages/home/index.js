@@ -7,8 +7,8 @@ import { mount, render } from '@/shared/dom/render';
 import { events } from '@/shared/event/event-broker';
 import { initXylophone as initXylophoneStore } from '@/features/xylophone/controller';
 import { Xylophone } from '@/features/xylophone/ui';
-import { PlayRecordButton } from '@/features/xylophone/ui/play-record';
-import { Display } from '@/features/xylophone/ui/display';
+import { PlayRecordButton } from '@/features/xylophone/ui/play-record-btn';
+import { Display } from '@/features/xylophone/ui/record-input';
 
 const root = document.querySelector('#root');
 initThemeStore({ root });
@@ -22,11 +22,15 @@ export function App() {
 }
 
 export function Header() {
-  return createElement('div', { className: 'header' }, 'HEADER');
+  return createElement(
+    'div',
+    { className: 'header mb-20' },
+    'Virtual Music Kit'
+  );
 }
 
 export function Footer() {
-  return createElement('div', { className: 'footer' }, 'FOOTER');
+  return createElement('div', { className: 'footer' }, '2025@asdqdsa');
 }
 
 const FML =
@@ -34,7 +38,7 @@ const FML =
 
 export function Title() {
   return createElement('h1', { className: '' }, FML);
-  // return createElement('h1', { className: '' }, 'Title');
+  // return createElement('h1', { className: '' }, '');
 }
 
 const app = render(App, root);
@@ -43,5 +47,5 @@ mount(Title, app);
 const xylophone = mount(Xylophone({ events }), app);
 mount(Display({ events }), xylophone);
 mount(PlayRecordButton({ events }), app);
+// mount(ThemeButton({ events }), app);
 mount(Footer, app);
-mount(ThemeButton({ events }), app);

@@ -1,7 +1,7 @@
 import { events } from '@/shared/event/event-broker';
 
 import { loadXylophoneState, updateXylophoneState } from './model/state';
-import { MAX_RECORD_LENGTH } from './constants';
+import { KEYBINDS, MAX_RECORD_LENGTH } from './constants';
 import { preLoadAudio } from './audio/loader';
 
 export async function initXylophone() {
@@ -18,4 +18,27 @@ export async function initXylophone() {
   }
   events.on('record:input', ({ detail }) => updateRecord(detail));
   events.on('record:confirm', ({ detail }) => updateRecord(detail));
+
+  events.on('keybind:edit-confirm', ({ detail }) => {
+    const { keyBind, newKeyBind } = detail;
+
+    if (!newKeyBind || KEYBINDS.has(newKeyBind.toUpperCase())) return;
+
+    const note = KEYBINDS.get(keyBind.toUpperCase());
+    if (!note) return;
+
+    const entries = Array.from(KEYBINDS.entries()).map(([k, v]) =>
+      k.toUpperCase() === keyBind.toUpperCase()
+        ? [newKeyBind.toUpperCase(), note]
+        : [k, v]
+    );
+
+    KEYBINDS.clear();
+    for (const [k, v] of entries) KEYBINDS.set(k, v);
+
+    console.log(`Keybind updated: ${keyBind} -> ${newKeyBind}`);
+    console.table(KEYBINDS);
+
+    events.emit('keybind:updated', { keyBind: newKeyBind, note });
+  });
 }

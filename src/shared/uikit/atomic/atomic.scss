@@ -53,6 +53,18 @@
   overflow: hidden;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: start;
+}
+
 @for $i from 0 to 20 {
   .gap-#{$i} {
     gap: rx($i);

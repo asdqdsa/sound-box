@@ -20,9 +20,9 @@ export const SEQUENCE = [
 ];
 
 export const KEYBINDS = new Map([
-  ['A', 'c'],
+  ['A', 'a'],
   ['B', 'b'],
-  ['C', 'a'],
+  ['C', 'c'],
   ['D', 'd'],
   ['E', 'e'],
   ['F', 'f'],
