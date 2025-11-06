@@ -5,4 +5,4 @@ export const THEMES = [
   'gold',
   // 'default',
 ];
-export const LOCAL_STORAGE_KEY_THEMES = 'themes-switcher-66';
+export const LOCAL_STORAGE_KEY_THEMES = 'themes-switcher-111';
