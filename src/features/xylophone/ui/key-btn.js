@@ -8,7 +8,6 @@ let isActive = false;
 export function XylophoneKey({ events, note, keyBind, idx, className }) {
   const play = () => {
     playNote(note.toUpperCase());
-    console.log('Playing note:', note);
     events.emit('xylophone:key', note);
   };
 

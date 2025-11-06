@@ -51,7 +51,7 @@ export function CloseKeybindBtn({ events, note }) {
         events.emit('keybind:edit-close', { note, id: e.target.id });
       },
     },
-    '[X]'
+    '⨯'
   );
 
   return el;

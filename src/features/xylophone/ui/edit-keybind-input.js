@@ -1,11 +1,8 @@
 import { createElement } from '@/shared/dom/create-element';
+import { isValidKeybind } from '@/shared/utils/lib';
 
 import { getKeyByNote } from './play-record-btn';
 import { KEYBINDS } from '../constants';
-
-export function isValidKeybind(code) {
-  return /^[A-Z]$/.test(code);
-}
 
 export function EditPadKeybind({ events, note, keyBind }) {
   const el = createElement('input', {

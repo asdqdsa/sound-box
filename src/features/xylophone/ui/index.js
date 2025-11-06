@@ -20,7 +20,7 @@ export function Xylophone({ events }) {
   ];
   const el = createElement(
     'div',
-    { className: 'flex gap-2 flex-col items-center h-full' },
+    { className: 'flex flex-col gap-3 items-center h-full' },
     ...keys.map((note, idx) => {
       const keyBind = getKeyByNote(note, KEYBINDS);
       return createElement(

@@ -1,6 +1,6 @@
 import '@/shared/dom/keyboard-events';
 
-import { ThemeButton } from '@/features/theme-switcher';
+// import { ThemeButton } from '@/features/theme-switcher';
 import { initTheme as initThemeStore } from '@/features/theme-switcher/controller';
 import { createElement } from '@/shared/dom/create-element';
 import { mount, render } from '@/shared/dom/render';
