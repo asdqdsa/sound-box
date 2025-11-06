@@ -5,7 +5,7 @@ import { playNote } from '../audio/player';
 
 let isActive = false;
 
-export function XylophoneKey({ events, note, keyBind, idx }) {
+export function XylophoneKey({ events, note, keyBind, idx, className }) {
   const play = () => {
     playNote(note.toUpperCase());
     console.log('Playing note:', note);
@@ -63,7 +63,7 @@ export function XylophoneKey({ events, note, keyBind, idx }) {
   const el = createElement(
     'button',
     {
-      className: 'btn',
+      className: `btn ${className}`,
       id: idx,
       onMouseDown: mouseDownHandler,
       onMouseUp: mouseUpHandler,

@@ -9,7 +9,7 @@ $input-inline-size: clamp(16rem, 7.143rem + 18.452vi, 23.75rem);
   block-size: rx(60);
   inline-size: $input-inline-size;
   max-inline-size: rx(380);
-  min-inline-size: rx(256);
+  min-inline-size: rx(30);
   /* text-align: center; */
   outline: none;
   transition:
@@ -41,8 +41,10 @@ $input-inline-size: clamp(16rem, 7.143rem + 18.452vi, 23.75rem);
 
 .keybind-input-hidden {
   display: none;
+  /* visibility: hidden; */
 }
 
 .keybind-input-shown {
   display: block;
+  /* visibility: visible; */
 }

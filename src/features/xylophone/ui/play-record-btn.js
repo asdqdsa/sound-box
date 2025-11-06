@@ -39,7 +39,7 @@ export function PlayRecordButton({ events }) {
   const el = createElement(
     'button',
     {
-      className: 'btn my-50',
+      className: 'btn ',
       id: 'start',
       onClick: () => {
         const { record } = loadXylophoneState();

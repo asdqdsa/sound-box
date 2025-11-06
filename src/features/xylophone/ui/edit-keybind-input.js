@@ -10,7 +10,7 @@ export function isValidKeybind(code) {
 export function EditPadKeybind({ events, note, keyBind }) {
   const el = createElement('input', {
     id: keyBind,
-    className: 'input rounded h-full text-left hidden',
+    className: 'input rounded h-full text-left keybind-input-hidden',
     placeholder: 'Enter keybind',
     type: 'text',
     maxLength: '1',
@@ -32,13 +32,22 @@ export function EditPadKeybind({ events, note, keyBind }) {
         });
 
         e.target.value = '';
+        events.emit('keybind:edit-close', { note, id: e.target.id });
       }
     },
   });
 
   events.on('keybind:edit-start', ({ detail }) => {
     if (detail.id.toLowerCase() === note.toLowerCase()) {
-      el.classList.remove('hidden');
+      el.classList.add('keybind-input-shown');
+      el.classList.remove('keybind-input-hidden');
+    }
+  });
+
+  events.on('keybind:edit-close', ({ detail }) => {
+    if (detail.id.toLowerCase() === note.toLowerCase()) {
+      el.classList.add('keybind-input-hidden');
+      el.classList.remove('keybind-input-shown');
     }
   });
 
@@ -48,7 +57,8 @@ export function EditPadKeybind({ events, note, keyBind }) {
 
   events.on('keybind:updated', ({ detail }) => {
     if (detail.note.toLowerCase() === note.toLowerCase()) {
-      el.classList.add('hidden');
+      el.classList.add('keybind-input-hidden');
+      el.classList.remove('keybind-input-shown');
     }
   });
 
