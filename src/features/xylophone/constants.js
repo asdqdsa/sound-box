@@ -1,4 +1,4 @@
-export const LOCAL_STORAGE_KEY_XYLOPHONE = 'XYLOPHONE-111';
+export const LOCAL_STORAGE_KEY_XYLOPHONE = 'XYLOPHONE-222';
 
 export const XYLOPHONE_KEYS = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
 
