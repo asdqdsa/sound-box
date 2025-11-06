@@ -11,6 +11,7 @@ export function EditPadKeybind({ events, note, keyBind }) {
     placeholder: 'Enter keybind',
     type: 'text',
     maxLength: '1',
+    value: keyBind,
 
     onInput: (e) => {
       const newKeyBind = e.target.value.trim().toUpperCase();
@@ -28,7 +29,7 @@ export function EditPadKeybind({ events, note, keyBind }) {
           newKeyBind: e.target.value.toLowerCase(),
         });
 
-        e.target.value = '';
+        e.target.value = e.target.value.toLowerCase();
         events.emit('keybind:edit-close', { note, id: e.target.id });
       }
     },
